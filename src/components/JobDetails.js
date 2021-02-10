@@ -5,7 +5,11 @@ const JobDetails = ({ jobDetails }) => {
     return skills
       ? skills.map((skill) => {
           return (
-            <div key={skill} className="ui blue basic button">
+            <div
+              key={skill}
+              className="ui blue basic label"
+              style={{ marginBottom: "3.5px", marginTop: "3.5px" }}
+            >
               {skill}
             </div>
           );
@@ -17,23 +21,20 @@ const JobDetails = ({ jobDetails }) => {
     return new Date(Date.parse(date)).toDateString();
   };
 
-  console.log(jobDetails);
   return (
     <div className="ui segment">
       <div className="ui header">{jobDetails.title}</div>
       <div className="ui divider"></div>
-      <div className="ui left basic label">
+      <div className="ui left basic black label">
         Posted:
         {customDateFormatter(jobDetails.posted)}
       </div>
-      <div className="ui left basic label">
+      <div className="ui left basic black label">
         Updated:{customDateFormatter(jobDetails.updated)}
       </div>
-      <div className="ui image label">{jobDetails.country}</div>
-      <div className="ui basic label">{jobDetails.category}</div>
-      <div className="ui hidden divider">{parseSkills(jobDetails.skills)}</div>
-      <br />
-      <br />
+      <div className="ui basic violet label">{jobDetails.country}</div>
+      <div className="ui orange label">{jobDetails.category}</div>
+      <div className="ui">{parseSkills(jobDetails.skills)}</div>
       {jobDetails && jobDetails.hourly ? (
         <div className="ui buttons">
           <div className="ui green button">
@@ -57,7 +58,7 @@ const JobDetails = ({ jobDetails }) => {
       <div className="ui segment description">
         <span dangerouslySetInnerHTML={{ __html: jobDetails.content }}></span>
       </div>
-      <div className="ui hidden devider">{parseSkills(jobDetails.skills)}</div>
+      <div className="ui">{parseSkills(jobDetails.skills)}</div>
     </div>
   );
 };

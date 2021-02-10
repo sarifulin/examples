@@ -5,18 +5,13 @@ import JobDetails from "./JobDetails";
 
 const MainTab = ({ jobs }) => {
   const [row, setRow] = useState([]);
-  console.log("row", row.length);
-
-  const pilledJobs = jobs.map((singleJob) => {
-    return singleJob._source;
-  });
 
   const showTable = () => {
     return (
       <div style={{ minHeight: 650, width: "100%" }}>
         <DataGrid
           columns={columns}
-          rows={pilledJobs}
+          rows={jobs}
           pageSize={10}
           onRowSelected={({ data }) => {
             // console.log(data);
