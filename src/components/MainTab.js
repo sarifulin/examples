@@ -14,7 +14,6 @@ const MainTab = ({ jobs }) => {
           rows={jobs}
           pageSize={10}
           onRowSelected={({ data }) => {
-            // console.log(data);
             setRow(data);
           }}
         />
@@ -25,7 +24,7 @@ const MainTab = ({ jobs }) => {
   return (
     <div>
       {showTable()}
-      {row && row.length != 0 ? <JobDetails jobDetails={row} /> : null}
+      {row && row.length !== 0 ? <JobDetails jobDetails={row} /> : null}
     </div>
   );
 };
